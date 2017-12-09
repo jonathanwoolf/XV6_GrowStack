@@ -190,6 +190,7 @@ fork(void)
   }
 
   // Copy process state from proc.
+  // CS153 Added: pass in curproc->tf->esp i.e. stack pointer
   if((np->pgdir = copyuvm(curproc->pgdir, curproc->sz, curproc->tf->esp)) == 0){
     kfree(np->kstack);
     np->kstack = 0;
